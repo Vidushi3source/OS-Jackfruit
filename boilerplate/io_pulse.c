@@ -11,7 +11,10 @@
  * If you copy this binary into an Alpine rootfs, make sure it is built in a
  * format that can run there.
  */
-
+#ifdef _WIN32
+#define fsync _commit
+#include <io.h>
+#endif
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
